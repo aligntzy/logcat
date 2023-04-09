@@ -3,6 +3,7 @@ package app
 import (
 	"bufio"
 	"io"
+	"log"
 	"os"
 	"time"
 )
@@ -13,11 +14,19 @@ type Reader interface {
 
 type ReadFromFile struct {
 	path string
+	f    *os.File
 }
 
-func NewReadFromFile() *ReadFromFile {
+func NewReadFromFile(folder string) *ReadFromFile {
+	path, err := LatestFile(folder)
+	if err != nil {
+		panic(err)
+	}
+	log.Println("listening log file:", path)
+	// FileWatcher(folder)
+
 	return &ReadFromFile{
-		path: "/tmp/access.log",
+		path: path,
 	}
 }
 

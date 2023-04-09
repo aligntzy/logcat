@@ -13,5 +13,5 @@ func NewIMNotifier() *IMNotifier {
 }
 
 func (*IMNotifier) Notify(data []byte) {
-	log.Println(string(data))
+	log.Println("sending data:", string(data))
 }

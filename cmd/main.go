@@ -1,15 +1,16 @@
 package main
 
 import (
+	"log"
+
 	"github.com/aligntzy/logcat/internal/app"
 )
 
 func main() {
-	lp := app.NewLogProcess()
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	go lp.Reader.Read(lp.RC)
+	lp := app.NewLogProcess()
 	go lp.Process()
-	go lp.Writer.Write(lp.WC)
 
 	for {
 	}
