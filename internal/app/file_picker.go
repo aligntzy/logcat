@@ -37,7 +37,7 @@ func LatestFile(folder string) (path string, err error) {
 	return
 }
 
-func FileWatcher(folder string) {
+func FileCreateWatcher(folder string, ch chan string) {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		log.Fatal(err)
@@ -50,9 +50,8 @@ func FileWatcher(folder string) {
 				if !ok {
 					return
 				}
-				log.Println("event:", event)
 				if event.Has(fsnotify.Create) {
-					log.Println("create file:", event.Name)
+					ch <- event.Name
 				}
 			case err, ok := <-watcher.Errors:
 				if !ok {
