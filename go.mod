@@ -1,4 +1,4 @@
-module github.com/aligntzy/logcat
+module github.com/sailwith/logcat
 
 go 1.18
 

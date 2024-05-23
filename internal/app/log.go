@@ -3,7 +3,7 @@ package app
 import (
 	"log"
 
-	"github.com/aligntzy/logcat/pkg/config"
+	"github.com/sailwith/logcat/pkg/config"
 )
 
 type LogProcess struct {

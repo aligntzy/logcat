@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/aligntzy/logcat/internal/app"
+	"github.com/sailwith/logcat/internal/app"
 )
 
 func main() {
@@ -12,6 +12,5 @@ func main() {
 	lp := app.NewLogProcess()
 	go lp.Process()
 
-	for {
-	}
+	select {}
 }
